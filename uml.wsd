@@ -1,3 +1,31 @@
 @startuml design
 
+class Flight {
+  airlineCode: String
+  flightNumber: Integer
+}
+
+class Aircraft {
+  prefix: String
+  number: Integer
+  manufacturer: String
+  model: String
+  capacity: Integer
+}
+
+class Airport {
+  iataCode: Integer
+  city: String
+  state: String
+  country: String
+}
+
+class Connection {
+  dateTime: DateTime
+}
+
+Flight --> Aircraft : operatedBy
+Connection --> Flight : flight
+Connection --> Airport : airport
+
 @enduml
